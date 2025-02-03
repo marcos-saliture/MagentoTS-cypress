@@ -8,9 +8,7 @@ describe('testing of required fields to Login', () => {
 
         cy.get('a[aria-label="store logo"]').should('be.visible')
 
-        const signInLink = 'body > div.page-wrapper > header > div.panel.wrapper > div > ul > li.authorization-link > a'
-
-        cy.get(signInLink).click();
+        cy.get('a:contains(Sign In)').first().click();
 
 
         cy.get('span[data-ui-id="page-title-wrapper"]').should('contain.text', 'Customer Login')

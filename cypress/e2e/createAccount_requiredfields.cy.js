@@ -8,8 +8,7 @@ describe('testing of required fields in create account form', () => {
 
         cy.get('a[aria-label="store logo"]').should('be.visible')
 
-        const cssLinkCreateAccount = 'body > div.page-wrapper > header > div.panel.wrapper > div > ul > li:nth-child(3) > a' 
-        cy.get(cssLinkCreateAccount).click()
+        cy.get('a:contains(Create an Account)').first().click();
 
         cy.get('span[data-ui-id="page-title-wrapper"]').should('contain.text', 'Create New Customer Account')
 

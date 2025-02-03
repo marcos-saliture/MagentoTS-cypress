@@ -19,8 +19,8 @@ describe('Browsing the main page without been logged', () => {
 
         cy.get('a.action.showcart').click()
 
-        const emptyCaMessage = 'You have no items in your shopping cart.'
-        cy.get('strong.subtitle.empty').should('be.visible').and('contain.text', emptyCaMessage)
+        const emptyCarMessage = 'You have no items in your shopping cart.'
+        cy.get('strong.subtitle.empty').should('be.visible').and('contain.text', emptyCarMessage)
     })
 
     it('TC16: going to Sale section by link', () => {

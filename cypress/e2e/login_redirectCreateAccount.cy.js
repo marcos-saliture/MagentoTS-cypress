@@ -7,9 +7,7 @@ describe('testing button "Create Account" in login page ', () => {
 
         cy.get('a[aria-label="store logo"]').should('be.visible')
 
-        const signInLink = 'body > div.page-wrapper > header > div.panel.wrapper > div > ul > li.authorization-link > a'
-
-        cy.get(signInLink).click();
+        cy.get('a:contains(Sign In)').first().click();
 
 
     })

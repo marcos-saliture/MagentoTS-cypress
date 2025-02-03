@@ -8,9 +8,7 @@ describe('testing success scenario of forgot password', () => {
 
         cy.visit(Cypress.env('BASE_URL'));
 
-        const signInLink = 'body > div.page-wrapper > header > div.panel.wrapper > div > ul > li.authorization-link > a'
-
-        cy.get(signInLink).click();
+        cy.get('a:contains(Sign In)').first().click();
 
         cy.get('a.action.remind').click();
 

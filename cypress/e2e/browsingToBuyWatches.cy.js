@@ -8,9 +8,7 @@ describe('testing buying watches', () => {
 
         cy.get('a[aria-label="store logo"]').should('be.visible')
 
-        const signInLink = 'body > div.page-wrapper > header > div.panel.wrapper > div > ul > li.authorization-link > a'
-
-        cy.get(signInLink).click();
+        cy.get('a:contains(Sign In)').first().click();       
 
         cy.get('#email').type(Cypress.env('TC28').email);
         cy.get('#pass').type(Cypress.env('TC28').password);
@@ -25,12 +23,12 @@ describe('testing buying watches', () => {
 
         cy.get('#ui-id-6').trigger('mouseover').get('#ui-id-27').click()
 
-        cy.get('a:contains(Didi Sport Watch)').should('be.visible').click();
+        cy.get('a:contains(Didi Sport Watch)').first().should('be.visible').click();
         cy.get('#product-addtocart-button').should('be.visible').click()
 
         cy.get('#ui-id-6').should('be.visible').trigger('mouseover').get('#ui-id-27').click()
                 
-        cy.get('a:contains(Aim Analog Watch)').scrollIntoView().should('be.visible').click()
+        cy.get('a.product-item-link:contains(Aim Analog Watch)').first().scrollIntoView().should('be.visible').click()
         cy.get('#product-addtocart-button').should('be.visible').click()
 
         cy.get('div.message-success.success.message').should('be.visible')

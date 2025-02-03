@@ -9,9 +9,7 @@ describe('testing view "My orders"', () => {
 
         cy.get('a[aria-label="store logo"]').should('be.visible')
 
-        const signInLink = 'body > div.page-wrapper > header > div.panel.wrapper > div > ul > li.authorization-link > a'
-
-        cy.get(signInLink).click();
+        cy.get('a:contains(Sign In)').first().click();
 
         cy.get('#email').type(Cypress.env('TC29').email);
         cy.get('#pass').type(Cypress.env('TC29').password);
@@ -19,11 +17,8 @@ describe('testing view "My orders"', () => {
         cy.get('#send2').click();
 
 
-        const xpathMenu = '/html/body/div[2]/header/div[1]/div/ul/li[2]/span/button'
-        const xpathLinkMyAccount = '/html/body/div[2]/header/div[1]/div/ul/li[2]/div/ul/li[1]/a'
-    
-        cy.xpath(xpathMenu).click()
-        cy.xpath(xpathLinkMyAccount).click()
+        cy.get('button.action.switch').first().click()
+        cy.get('a:contains(My Account)').first().click()
     
         cy.url().should('contain', 'https://magento.softwaretestingboard.com/customer/account/')
 
