@@ -114,20 +114,21 @@ Cypress.Commands.add('fillCartCLP', () => {
     cy.get('#ui-id-3').click()
 
     cy.get('#compare-clear-all').click()
-    cy.get('button.action-primary.action-accept').should('be.visible').click().then(() => {
+    cy.get('button.action-primary.action-accept').should('be.visible').click()
 
-        cy.get('span.counter.qty > span.counter-number').should('be.visible').then( () => {
+    cy.get('span.counter.qty > span.counter-number').should('be.visible').then(() => {
 
-            cy.get('a.action.showcart').should('be.visible').click()
+        cy.get('div.minicart-wrapper').click()
+
+        cy.get('a.action.showcart').should('be.visible').and('have.class', 'active').click()
     
-            cy.get('#top-cart-btn-checkout').should('be.visible')
-        
-            cy.get('a.action.viewcart').should('be.visible').click()
-        
-            cy.get('span[data-ui-id="page-title-wrapper"]').should('be.visible').should('contain.text', 'Shopping Cart')
-    
-        })
-     
+        cy.get('#top-cart-btn-checkout').should('be.visible')
+            
+        cy.get('a.action.viewcart').should('be.visible').click()
+            
+        cy.get('span[data-ui-id="page-title-wrapper"]').should('be.visible').should('contain.text', 'Shopping Cart')
+
+
     })
    
 })
