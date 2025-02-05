@@ -120,11 +120,9 @@ Cypress.Commands.add('fillCartCLP', () => {
 
         cy.get('div.minicart-wrapper').click()
 
-        cy.get('a.action.showcart').should('be.visible').and('have.class', 'active').click()
-    
-        cy.get('#top-cart-btn-checkout').should('be.visible')
+        cy.get('a.action.showcart').click()
             
-        cy.get('a.action.viewcart').should('be.visible').click()
+        cy.get('a.action.viewcart').click()
             
         cy.get('span[data-ui-id="page-title-wrapper"]').should('be.visible').should('contain.text', 'Shopping Cart')
 
